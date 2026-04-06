@@ -1,0 +1,113 @@
+.window {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  overflow: hidden;
+  background: rgba(32, 32, 42, 0.92);
+  backdrop-filter: blur(40px) saturate(150%);
+  -webkit-backdrop-filter: blur(40px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.45),
+    0 2px 8px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  transition: box-shadow 0.2s, opacity 0.15s;
+}
+
+.window--active {
+  border-color: rgba(100, 120, 255, 0.2);
+  box-shadow:
+    0 12px 48px rgba(0, 0, 0, 0.5),
+    0 4px 16px rgba(0, 0, 0, 0.35),
+    0 0 0 1px rgba(100, 120, 255, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.window--inactive {
+  opacity: 0.85;
+}
+
+.window--maximized {
+  border-radius: 0;
+}
+
+.window__titlebar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 36px;
+  padding: 0 8px 0 12px;
+  background: rgba(25, 25, 35, 0.6);
+  cursor: grab;
+  flex-shrink: 0;
+}
+
+.window__titlebar:active {
+  cursor: grabbing;
+}
+
+.window__titlebar-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.window__icon {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #a8a8d0;
+}
+
+.window__title {
+  font-size: 12px;
+  color: #ccc;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 400;
+}
+
+.window--inactive .window__title {
+  color: #888;
+}
+
+.window__controls {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin-left: 8px;
+}
+
+.window__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: transparent;
+  color: #aaa;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.1s, color 0.1s;
+}
+
+.window__btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+.window__btn--close:hover {
+  background: #e81123;
+  color: #fff;
+}
+
+.window__body {
+  flex: 1;
+  overflow: auto;
+  color: #d4d4d4;
+  font-size: 13px;
+}
